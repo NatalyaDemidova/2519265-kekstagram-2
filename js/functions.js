@@ -29,19 +29,19 @@ isPalindrome('ТоПот');
 // Возврат числа из строки
 
 function getNumber(string) {
-  let stringCopy = string.toString();
-  stringCopy = stringCopy.replaceAll(' ', '');
-  let result = '';
+  const stringCopy = string.toString().replaceAll(' ', '');
+  let result;
   for(let i = 0; i < stringCopy.length; i++) {
     if (!isNaN(stringCopy[i])) {
-      result = result + stringCopy[i];
+      result = (result || '') + stringCopy[i];
     }
   }
-  return result;
+  return (result || NaN);
 }
 
-getNumber(-8);
+getNumber('1 rf15');
 
 // console.log(getNumber('-8'));
 // console.log(getNumber('1,5'));
 // console.log(getNumber('1 кефир, 0.5 батона'));
+// console.log(getNumber('jsfdjf'));
